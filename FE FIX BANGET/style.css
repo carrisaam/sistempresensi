@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
+body{
+    font-family: 'Montserrat';
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked+label {
+    transition: 0.5s;
+    background-color: #776B5D !important;
+    /* Change this to the desired background color */
+    color: #fff;
+    /* Change this to the desired text color */
+}
