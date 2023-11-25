@@ -18,14 +18,14 @@ class DatabaseSeeder extends Seeder
     {
         // User Seeder
         User::create([
-            'name' => 'Phasa',
-            'nim' => '21515707111234',
+            'name' => 'Pasha',
+            'nim' => '215150607111013',
             'password' => bcrypt('password')
         ]);
 
         User::create([
             'name' => 'Alea',
-            'nim' => '21515707111235',
+            'nim' => '215150601111012',
             'password' => bcrypt('password')
         ]);
 
