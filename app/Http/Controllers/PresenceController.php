@@ -4,11 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Libraries\ResponseBase;
+use App\Models\CourseSchedule;
 use App\Models\Presence;
 use Illuminate\Support\Facades\Validator;
 
 class PresenceController extends Controller
 {
+    public function index(CourseSchedule $courseSchedule)
+    {
+        if($courseSchedule->status == 'Tutup'){
+            return back()->with('error', 'Presensi Sedang Ditutup!');
+        }
+        return view('presensi');
+    }
+
     public function presence(Request $request)
     {
         $rules = [

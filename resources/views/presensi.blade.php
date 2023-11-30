@@ -25,7 +25,7 @@
             <div class="bg-[#EBE3D5] p-5 font-montserra rounded-b-3xl border-2 border-stone-500">
                 <p class="text-stone-500 text-base font-semibold">Lorem Ipsum</p>
                 <p class="text-stone-500 text-base font-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <form action="" method="post" class="flex flex-col">
+                <!-- <form action="" method="post" class="flex flex-col"> -->
                     <div class="flex flex-row my-auto py-3 gap-5 items-center justify-center my-auto">
                         <input type="radio" id="option0" name="absentType" class="appearance-none" value="option0"/>
                         <label for="option0" class="cursor-pointer w-1/6 flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
@@ -43,7 +43,7 @@
                     <div class="flex flex-row items-center justify-center mt-5">
                         <button type="submit" class="w-40 py-2 font-semibold bg-stone-500 rounded-lg shadow border border-stone-500 text-white">Simpan</button>
                     </div>  
-                </form>
+                <!-- </form> -->
             </div>
         </div>
     </div>

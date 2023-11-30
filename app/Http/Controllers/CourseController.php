@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Libraries\ResponseBase;
 use App\Models\Course;
 
 class CourseController extends Controller
 {
     public function index()
     {
+        return view('beranda');
+    }
+
+    public function courses()
+    {
         $courses = Course::all();
 
-        return ResponseBase::success('Berhasil menerima data course', $courses);
+        return view('datapresensi', [
+            'courses' => $courses
+        ]);
     }
 }

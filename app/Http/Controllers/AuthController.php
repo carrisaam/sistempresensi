@@ -6,35 +6,28 @@ use Illuminate\Http\Request;
 use App\Libraries\ResponseBase;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function loginPage()
     {
-        $rules = [
+        return view('login');
+    }
+
+    public function loginAttempt(Request $request)
+    {
+        $credentials = $request->validate([
             'nim' => 'required|string|exists:users,nim',
-            'password' => 'required|string',
-        ];
-
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails())
-            return ResponseBase::error($validator->errors(), 422);
-
-        $user = User::where('nim', $request->nim)->firstOrFail();
-
-        if (!Hash::check($request->password, $user->password)) {
-            return ResponseBase::error('Password salah', 403);
-        }
-
-        $token = JWTAuth::fromUser($user);
-
-        return ResponseBase::success('Login berhasil', [
-            'token' => $token,
-            'type' => 'bearer'
+            'password' => 'required|string'
         ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/home');
+        }
+        return back()->with('loginError', 'Login failed!');
     }
 
     public function getUserProfile()
@@ -46,10 +39,12 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        JWTAuth::invalidate();
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-        return ResponseBase::success('Logout berhasil');
+        return redirect('/login');
     }
 }

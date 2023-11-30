@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('course_schedules', function (Blueprint $table) {
             $table->id();
             $table->string('schedule');
+            $table->string('status')->default('Buka');
             $table->foreignId('course_id')->constrained('courses')->cascadeOnDelete();
             $table->timestamps();
         });
