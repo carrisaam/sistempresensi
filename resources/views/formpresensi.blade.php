@@ -17,37 +17,37 @@
         </div>
     </nav>
     <div class="bg-stone-100 h-[90%] gap-5 py-10 flex flex-col">
-        <p class="text-center text-stone-500 text-4xl font-bold mb-7">Data Presensi</p>
+        <p class="text-center text-stone-500 text-4xl font-bold mb-7">Form Presensi</p>
         <div class="flex flex-col w-[70%] mx-auto gap-10">
-            <p class="text-stone-500 text-3xl font-bold">Lorem Ipsum</p>
+            <p class="text-stone-500 text-3xl font-bold">Kelas Pemrograman Dasar</p>
 
             <form action="" class="flex flex-col" method="post">
                 <div class="flex flex-row my-auto py-3 gap-5 items-center justify-between my-auto">
                         <input type="radio" id="option0" name="absentType" class="appearance-none" value="option0"/>
                         <label for="option0" class="cursor-pointer w-72 py-7 shadow-lg flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
-                             option 0
+                            Kelas A 07.00 - 08.39
                         </label>
                         <input type="radio" id="option1" name="absentType" class="appearance-none" value="option1"/> 
                         <label for="option1" class="cursor-pointer w-72 py-7 shadow-lg flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
-                            option 1
+                            Kelas B 08.40 - 10.19
                         </label> 
                         <input type="radio" id="option2" name="absentType" class="appearance-none" value="option2"/> 
                         <label for="option2" class="cursor-pointer w-72 py-7 shadow-lg flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
-                            option 2
+                            Kelas C 10.19 - 11.39
                         </label>
                 </div>
                 <div class="flex flex-row my-auto py-3 gap-5 items-center justify-between my-auto">
-                        <input type="radio" id="option4" name="absentType" class="appearance-none" value="option0"/>
+                        <input type="radio" id="option4" name="absentType" class="appearance-none" value="4"/>
                         <label for="option4" class="cursor-pointer w-72 py-7 shadow-lg flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
-                             option 4
+                            Buka Presensi
                         </label>
-                        <input type="radio" id="option5" name="absentType" class="appearance-none" value="option1"/> 
+                        <input type="radio" id="option5" name="absentType" class="appearance-none" value="option5"/> 
                         <label for="option5" class="cursor-pointer w-72 py-7 shadow-lg flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
-                            option 5
+                            Update Presensi
                         </label> 
-                        <input type="radio" id="option6" name="absentType" class="appearance-none" value="option2"/> 
+                        <input type="radio" id="option6" name="absentType" class="appearance-none" value="option6"/> 
                         <label for="option6" class="cursor-pointer w-72 py-7 shadow-lg flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
-                            option 6
+                            Hapus Presensi
                         </label>
                 </div>
                 <div class="flex flex-row items-center justify-center mt-20">
