@@ -20,3 +20,17 @@ Route::get('/', function () {
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
+
+
+
+use App\Http\Controllers\AuthController;
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::post('/login', [AuthController::class, 'login']);
+
+// routes/web.php
+
+Route::get('/dashboard', [HomeController::class, 'index']);
