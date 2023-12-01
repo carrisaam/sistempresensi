@@ -24,25 +24,23 @@
     </nav>
     <div class="bg-stone-100 h-[90%] flex flex-col gap-9 items-center justify-center h-100 my-auto">
         <div class="flex flex-row bg-[#B0A695] w-[60%] border-2 border-stone-500 p-3 rounded-3xl gap-4">
-            <img src="ryujin.jpg" class="w-40 h-48 rounded-3xl" alt="">
+            
             <div class="flex w-[100%] flex-col justify-center gap-3">
                 <p class="text-white text-left text-3xl font-semibold">SELAMAT DATANG, {{ auth()->user()->name }}</p>
                 <div class="Line1 w-[100%] h-[2px] border-[3px] border-white"></div>
                 <div>
-                    <p class="text-white text-2xl font-medium font-thin">Lorem Ipsum</p>
-                    <p class="text-white text-2xl font-medium font-thin">Lorem Ipsum</p>
-                    <p class="text-white text-2xl font-medium font-thin">Lorem Ipsum</p>
+                    <p class="text-white text-2xl font-medium font-thin">NIP > {{ auth()->user()->nim }}</p>
+                    <p class="text-white text-2xl font-medium font-thin">FAKULTAS > Ilmu Komputer</p>
+                    <p class="text-white text-2xl font-medium font-thin">PRODI > Pendidikan Teknologi Informasi</p>
                 </div>
             </div>
         </div>
         <div class="divide-y divide-solid divide-stone-500 divide-2 w-[60%] flex flex-col gap-3 border-y-stone-500 border-2">
-            <p class="text-stone-500 text-xl font-bold">> Lorem Ipsum</p>
-            <p class="text-stone-500 text-xl font-bold">> Lorem Ipsum</p>
-            <p class="text-stone-500 text-xl font-bold">> Lorem Ipsum</p>
-            <p class="text-stone-500 text-xl font-bold">> Lorem Ipsum</p>
-            <p class="text-stone-500 text-xl font-bold">> Lorem Ipsum</p>
+            <p class="text-stone-500 text-xl font-bold"><a href="/courses">> PRESENSI</a></p>
+            <p class="text-stone-500 text-xl font-bold">> KARTU RENCANA STUDI</p>
+            <p class="text-stone-500 text-xl font-bold">> KARTU HASIL STUDI</p>
+            <p class="text-stone-500 text-xl font-bold">> JADWAL KULIAH</p>
         </div>
-        <p class="text-stone-500 text-xl font-bold"><a href="/courses">> Courses</a></p>
         <!-- <div class="Login bg-stone-100 mx-auto my-auto">
             <div class="bg-stone-500 py-3 text-center rounded-t-3xl text-white font border-2 border-stone-500">
                 <h1 class="text-xl font-semibold text-[#F3EEEA]">LOGIN</h1>
