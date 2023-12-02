@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{asset('style.css')}}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -19,7 +19,7 @@
                 <form action="/loginattempt" method="post" class="flex flex-col">
                     @csrf
                     <div class="flex flex-col mb-5">
-                        <label for="" class="text-[#776B5D] text-l font-semibold">Username</label>
+                        <label for="" class="text-[#776B5D] text-l font-semibold">NIM / NID</label>
                         <input type="text" name="nim" id="" class="w-96 h-9 bg-white rounded-lg shadow border border-stone-500 ps-2">
                         @error('nim')
                         <div class="text-red-600">

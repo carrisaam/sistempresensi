@@ -7,6 +7,8 @@ use App\Libraries\ResponseBase;
 use App\Models\CourseSchedule;
 use App\Models\Presence;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Auth;
 
 class PresenceController extends Controller
 {
@@ -15,14 +17,18 @@ class PresenceController extends Controller
         if($courseSchedule->status == 'Tutup'){
             return back()->with('error', 'Presensi Sedang Ditutup!');
         }
-        return view('presensi');
+        return view('presensi', ['presence' => $courseSchedule]);
+    }
+
+    public function listPresensi($id){
+        $presences = Presence::where('course_schedule_id', $id)->get();
+        return view('listPresensi', ['presences' => $presences]);
     }
 
     public function presence(Request $request)
     {
         $rules = [
-            'status' => 'required|string|in:Hadir,Sakit,Izin',
-            'user_id' => 'required|integer|exists:users,id',
+            'absentType' => 'required|string|in:Hadir,Sakit,Izin',
             'course_schedule_id' => 'required|integer|exists:course_schedules,id'
         ];
 
@@ -32,12 +38,12 @@ class PresenceController extends Controller
 
         try {
             $presence = new Presence();
-            $presence->status = $request->status;
-            $presence->user_id = $request->user_id;
+            $presence->status = $request->absentType;
+            $presence->user_id = Auth::user()->id;
             $presence->course_schedule_id = $request->course_schedule_id;
             $presence->save();
 
-            return ResponseBase::success("Berhasil menambahkan data presence!", $presence);
+            return redirect('/home');
         } catch (\Exception $e) {
             return ResponseBase::error('Gagal menambahkan data presence!', 409);
         }

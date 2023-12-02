@@ -19,4 +19,6 @@ Route::get('/schedule/close/{course:id}', [CourseScheduleController::class, 'clo
 Route::delete('/schedule/delete/{course:id}', [CourseScheduleController::class, 'delete'])->middleware('auth');
 Route::get('/schedule/reset/{course:id}', [CourseScheduleController::class, 'reset'])->middleware('auth');
 Route::get('/schedules/{course:id}', [CourseScheduleController::class, 'detail'])->middleware('auth');
-Route::get('/presence/{courseSchedule:id}', [PresenceController::class, 'index'])->middleware('auth');
+Route::get('/schedules/presence-list/{id}', [PresenceController::class, 'listPresensi'])->middleware('auth');
+Route::get('/schedules/presence/{courseSchedule:id}', [PresenceController::class, 'index'])->middleware('auth');
+Route::post('/presence/{courseSchedule:id}', [PresenceController::class, 'presence'])->name('presence')->middleware('auth');

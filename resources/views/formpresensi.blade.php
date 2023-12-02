@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Presensi</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{asset('style.css')}}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-stone-100 h-screen">
     <nav class="bg-[#776B5D] border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-semibold text-[#FFFFFF]">Flowbite</span>
+            <a href="{{url('/home')}}" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold text-[#FFFFFF]">PRESENSI</span>
             </a>
             <h3 class="text-end text-white text-xl font-semibold">SISTEM AKADEMIK UNIVERSITAS BRAWIJAYA</h3>
             <form action="/logout" method="post">
@@ -31,15 +31,15 @@
                 @if (count($course->schedules) > 0)
                 <input type="radio" id="option0" name="absentType" class="appearance-none" value="option0" />
                 <label for="option0" class="cursor-pointer w-72 py-7 shadow-lg flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
-                    <a href="/presence/{{ $course->schedules[0]->id }}">Kelas A - {{ $course->schedules[0]->schedule }}</a>
+                    <a href="{{auth()->user()->role == 1 ? 'presence-list/' : 'presence/'}}{{ $course->schedules[0]->id }}">Kelas A - {{ $course->schedules[0]->schedule }}</a>
                 </label>
                 <input type="radio" id="option1" name="absentType" class="appearance-none" value="option1" />
                 <label for="option1" class="cursor-pointer w-72 py-7 shadow-lg flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
-                    <a href="/presence/{{ $course->schedules[1]->id }}">Kelas B - {{ $course->schedules[1]->schedule }}</a>
+                    <a href="{{auth()->user()->role == 1 ? 'presence-list/' : 'presence/'}}{{ $course->schedules[1]->id }}">Kelas B - {{ $course->schedules[1]->schedule }}</a>
                 </label>
                 <input type="radio" id="option2" name="absentType" class="appearance-none" value="option2" />
                 <label for="option2" class="cursor-pointer w-72 py-7 shadow-lg flex items-center justify-center truncate uppercase w-28 h-8 bg-white rounded-lg shadow border border-stone-500" value="">
-                    <a href="/presence/{{ $course->schedules[2]->id }}">Kelas C - {{ $course->schedules[2]->schedule }}</a>
+                    <a href="{{auth()->user()->role == 1 ? 'presence-list/' : 'presence/'}}{{ $course->schedules[2]->id }}">Kelas C - {{ $course->schedules[2]->schedule }}</a>
                 </label>
                 @else
                 <input type="radio" id="option0" name="absentType" class="appearance-none" value="option0" />

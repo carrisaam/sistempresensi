@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Presensi</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{asset('style.css')}}">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-stone-100 h-screen">
     <nav class="bg-[#776B5D] border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-semibold text-[#FFFFFF]">Flowbite</span>
+            <a href="{{url('/home')}}" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold text-[#FFFFFF]">PRESENSI</span>
             </a>
             <h3 class="text-end text-white text-xl font-semibold">SISTEM AKADEMIK UNIVERSITAS BRAWIJAYA</h3>
             <form action="/logout" method="post">
@@ -23,29 +23,12 @@
     <div class="bg-stone-100 h-[90%] gap-5 py-10 flex flex-col">
         <p class="text-center text-stone-500 text-4xl font-bold mb-7">Data Presensi</p>
         <div class="flex flex-col w-[70%] mx-auto gap-10">
-            <div class="flex flex-row justify-between">
-                <div class="Rectangle3 px-32 py-3 bg-white rounded-lg shadow border border-stone-500">
-                    <p class="text-center text-stone-500 text-xl font-regular"><a href="/schedules/{{ $courses[0]->id }}">{{ $courses[0]->name }}</a></p>
+            <div class="flex flex-row justify-between" style="flex-wrap: wrap;">
+                @foreach($courses as $course)
+                <div class="Rectangle3 px-32 py-3 bg-white rounded-lg shadow border border-stone-500 mb-3" style="flex: 0 0 40%;">
+                    <p class="text-center text-stone-500 text-xl font-regular my-auto"><a href="/schedules/{{ $course->id }}">{{ $course->name }}</a></p>
                 </div>
-                <div class="Rectangle3 px-32 py-3 bg-white rounded-lg shadow border border-stone-500">
-                    <p class="text-center text-stone-500 text-xl font-regular"><a href="/schedules/{{ $courses[1]->id }}">{{ $courses[1]->name }}</a></p>
-                </div>
-            </div>
-            <div class="flex flex-row justify-between">
-                <div class="Rectangle3 px-32 py-3 bg-white rounded-lg shadow border border-stone-500">
-                    <p class="text-center text-stone-500 text-xl font-regular"><a href="/schedules/{{ $courses[2]->id }}">{{ $courses[2]->name }}</a></p>
-                </div>
-                <div class="Rectangle3 px-32 py-3 bg-white rounded-lg shadow border border-stone-500">
-                    <p class="text-center text-stone-500 text-xl font-regular"><a href="/schedules/{{ $courses[3]->id }}">{{ $courses[3]->name }}</a></p>
-                </div>
-            </div>
-            <div class="flex flex-row justify-between">
-                <div class="Rectangle3 px-32 py-3 bg-white rounded-lg shadow border border-stone-500">
-                    <p class="text-center text-stone-500 text-xl font-regular"><a href="/schedules/{{ $courses[4]->id }}">{{ $courses[4]->name }}</a></p>
-                </div>
-                <div class="Rectangle3 px-32 py-3 bg-white rounded-lg shadow border border-stone-500">
-                    <p class="text-center text-stone-500 text-xl font-regular"><a href="/schedules/{{ $courses[5]->id }}">{{ $courses[5]->name }}</a></p>
-                </div>
+                @endforeach
             </div>
         </div>
         <!-- <div class="Login bg-stone-100 mx-auto my-auto">

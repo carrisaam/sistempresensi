@@ -10,4 +10,12 @@ class Presence extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function course_schedule(){
+        return $this->belongsTo(CourseSchedule::class, 'course_schedule_id', 'id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

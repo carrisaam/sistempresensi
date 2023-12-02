@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{asset('style.css')}}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-stone-100 h-screen">
     <nav class="bg-[#776B5D] border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-semibold text-[#FFFFFF]">Flowbite</span>
+            <a href="{{url('/home')}}" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold text-[#FFFFFF]">PRESENSI</span>
             </a>
             <h3 class="text-end text-white text-xl font-semibold">SISTEM AKADEMIK UNIVERSITAS BRAWIJAYA</h3>
             <form action="/logout" method="post">
@@ -35,12 +35,18 @@
                 </div>
             </div>
         </div>
+        @if(auth()->user()->role == 1)
         <div class="divide-y divide-solid divide-stone-500 divide-2 w-[60%] flex flex-col gap-3 border-y-stone-500 border-2">
-            <p class="text-stone-500 text-xl font-bold"><a href="/courses">> PRESENSI</a></p>
-            <p class="text-stone-500 text-xl font-bold">> KARTU RENCANA STUDI</p>
-            <p class="text-stone-500 text-xl font-bold">> KARTU HASIL STUDI</p>
-            <p class="text-stone-500 text-xl font-bold">> JADWAL KULIAH</p>
-        </div>
+                <p class="text-stone-500 text-xl font-bold"><a href="/courses">> DATA PRESENSI</a></p>
+            </div>
+        @else
+            <div class="divide-y divide-solid divide-stone-500 divide-2 w-[60%] flex flex-col gap-3 border-y-stone-500 border-2">
+                <p class="text-stone-500 text-xl font-bold"><a href="/courses">> PRESENSI</a></p>
+                <p class="text-stone-500 text-xl font-bold">> KARTU RENCANA STUDI</p>
+                <p class="text-stone-500 text-xl font-bold">> KARTU HASIL STUDI</p>
+                <p class="text-stone-500 text-xl font-bold">> JADWAL KULIAH</p>
+            </div>
+        @endif
         <!-- <div class="Login bg-stone-100 mx-auto my-auto">
             <div class="bg-stone-500 py-3 text-center rounded-t-3xl text-white font border-2 border-stone-500">
                 <h1 class="text-xl font-semibold text-[#F3EEEA]">LOGIN</h1>
